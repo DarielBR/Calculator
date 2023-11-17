@@ -1,7 +1,6 @@
 package com.bravoromeo.calculator.ui.screens.elements
 
 import android.content.res.Configuration
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -45,6 +44,6 @@ fun DisplayResultsElement(
         color = MaterialTheme.colorScheme.onSurfaceVariant,
         textAlign = TextAlign.Right,
         fontWeight = FontWeight.SemiBold,
-        fontSize = 20.sp
+        fontSize = 38.sp
     )
 }

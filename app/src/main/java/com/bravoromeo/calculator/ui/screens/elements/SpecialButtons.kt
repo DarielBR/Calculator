@@ -5,8 +5,8 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Card
@@ -19,6 +19,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.bravoromeo.calculator.R
 import com.bravoromeo.calculator.ui.theme.CalculatorTheme
 
@@ -45,15 +46,12 @@ fun PreviewSpecialButtons(){
 @Composable
 fun ACButton(
     modifier: Modifier = Modifier,
-    height: Int? = null,
-    width: Int? = null,
     onClick: () -> Unit
 ){
     Card(
         modifier = modifier
-            .padding(2.dp)
-            .height(height?.dp ?: 30.dp)
-            .width(width?.dp ?: 30.dp)
+            .padding(4.dp)
+            .fillMaxSize()
             .clickable { onClick.invoke() },
         elevation = CardDefaults.cardElevation(
             focusedElevation = 1.dp,
@@ -74,7 +72,8 @@ fun ACButton(
         ){
             Text(
                 text = "AC",
-                color = MaterialTheme.colorScheme.onErrorContainer
+                color = MaterialTheme.colorScheme.onErrorContainer,
+                fontSize = 32.sp
             )
         }
     }
@@ -82,15 +81,12 @@ fun ACButton(
 @Composable
 fun DeleteButton(
     modifier: Modifier = Modifier,
-    height: Int? = null,
-    width: Int? = null,
     onClick: () -> Unit
 ){
     Card(
         modifier = modifier
-            .padding(2.dp)
-            .height(height?.dp ?: 30.dp)
-            .width(width?.dp ?: 30.dp)
+            .padding(4.dp)
+            .fillMaxSize()
             .clickable { onClick.invoke() },
         elevation = CardDefaults.cardElevation(
             focusedElevation = 1.dp,
@@ -111,7 +107,8 @@ fun DeleteButton(
         ){
             Text(
                 text = "◄",
-                color = MaterialTheme.colorScheme.onSecondary
+                color = MaterialTheme.colorScheme.onSecondary,
+                fontSize = 32.sp
             )
         }
     }
@@ -120,14 +117,13 @@ fun DeleteButton(
 fun OtherOperationsButton(
     modifier: Modifier = Modifier,
     symbol: String? = null,
-    height: Int? = null,
     width: Int? = null,
     onClick: (String) -> Unit
 ){
     Card(
         modifier = modifier
-            .padding(2.dp)
-            .height(height?.dp ?: 30.dp)
+            .padding(4.dp)
+            .fillMaxHeight()
             .width(width?.dp ?: 30.dp)
             .clickable { onClick.invoke( (symbol ?: "SIN")  + "(") },
         elevation = CardDefaults.cardElevation(
@@ -149,7 +145,45 @@ fun OtherOperationsButton(
         ){
             Text(
                 text = symbol ?: stringResource(id = R.string.sine),
-                color = MaterialTheme.colorScheme.onSurface
+                color = MaterialTheme.colorScheme.onSurface,
+                fontSize = 32.sp
+            )
+        }
+    }
+}
+@Composable
+fun PiButton(
+    modifier: Modifier = Modifier,
+    width: Int? = null,
+    onClick: (String) -> Unit
+){
+    Card(
+        modifier = modifier
+            .padding(4.dp)
+            .fillMaxHeight()
+            .width(width?.dp ?: 30.dp)
+            .clickable { onClick.invoke("pi") },
+        elevation = CardDefaults.cardElevation(
+            focusedElevation = 1.dp,
+            pressedElevation = 0.dp,
+            defaultElevation = 2.dp,
+            hoveredElevation = 1.dp
+        ),
+        shape = MaterialTheme.shapes.small,
+        colors = CardDefaults.cardColors(
+            containerColor = MaterialTheme.colorScheme.surface
+        )
+    ) {
+        Column(
+            modifier = modifier
+                .fillMaxSize(),
+            verticalArrangement = Arrangement.Center,
+            horizontalAlignment = Alignment.CenterHorizontally
+        ){
+            Text(
+                text = "π",
+                color = MaterialTheme.colorScheme.onSurface,
+                fontSize = 32.sp
             )
         }
     }

@@ -6,9 +6,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.MaterialTheme
@@ -18,6 +16,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.bravoromeo.calculator.ui.theme.CalculatorTheme
 
 @Preview(showBackground = true)
@@ -44,15 +43,12 @@ fun PreviewNumberButton(){
 fun NumberButton(
     modifier: Modifier = Modifier,
     number: Char? = null,
-    height: Int? = null,
-    width: Int? = null,
     onClick: (Char) -> Unit
 ){
     Card(
         modifier = modifier
-            .padding(2.dp)
-            .height(height?.dp ?: 30.dp)
-            .width(width?.dp ?: 30.dp)
+            .padding(4.dp)
+            .fillMaxSize()
             .clickable { onClick.invoke(number ?: '1') },
         elevation = CardDefaults.cardElevation(
             focusedElevation = 1.dp,
@@ -73,7 +69,8 @@ fun NumberButton(
         ){
             Text(
                 text = number?.toString() ?: "1",
-                color = MaterialTheme.colorScheme.onSurfaceVariant
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                fontSize = 32.sp
             )
         }
     }

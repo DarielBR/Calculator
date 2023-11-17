@@ -3,7 +3,6 @@ package com.bravoromeo.calculator.ui.screens.elements
 import android.content.res.Configuration
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
@@ -15,6 +14,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.bravoromeo.calculator.ui.theme.CalculatorTheme
 
 @Preview(showBackground = true)
@@ -46,6 +46,7 @@ fun DisplayHistoryElement(
         text = text ?: "25",
         color = MaterialTheme.colorScheme.onSurfaceVariant,
         textAlign = TextAlign.Right,
-        fontWeight = FontWeight.Light
+        fontWeight = FontWeight.Light,
+        fontSize = 32.sp
     )
 }
