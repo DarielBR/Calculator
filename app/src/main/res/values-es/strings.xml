@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Calculadora</string>
+    <string name="greeting">Hola: \u0020</string>
+    <string name="language">Español</string>
+    <string name="sine">SEN</string>
+    <string name="cosine">COS</string>
+    <string name="tangent">TAN</string>
+    <string name="cotangent">COT</string>
+    <string name="secant">SEC</string>
+    <string name="cosecant">CSC</string>
+</resources>
